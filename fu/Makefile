@@ -1,7 +1,7 @@
 NAME=push_swap
 BNAME=checker
 CC=cc
-CFLAGS=-Wextra -Wall -Werror -fsanitize=address
+CFLAGS=-Wextra -Wall -Werror 
 SRC=sorting/bubble_sort_five.c sorting/sort_array.c sorting/sort_bigger_stack.c sorting/sort_three.c sorting/sorted_checker.c\
 		operations/pb.c operations/reverse_rotation.c operations/rotate.c operations/rr.c operations/rrr.c operations/sa_sb.c\
 		merging_a_b/moves.c merging_a_b/position_init.c merging_a_b/pushto_a.c merging_a_b/split_join.c merging_a_b/target.c merging_a_b/added_function.c\

@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
+#include <stdio.h>
 # define TRUE 1
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
@@ -62,7 +63,7 @@ void	rrr(t_node **stack_a, t_node **stack_b, int cost_a, int cost_b);
 void	rr(t_node **stack_a, t_node **stack_b, int cost_a, int cost_b);
 void	create_stack_a(t_node **stack_a, char **arg);
 int		find_target(t_node *stack_b, t_node *stack_a);
-int		check_syntax_duplication(char *buffer, size_t length, int i);
+int		check_syntax_duplication(t_node *stack_a);
 void	sort_number_inarray(int **ar, int len);
 void	pb(t_node **stack_a, t_node **stack_b);
 void	sort_forbig(t_node **stack_a, t_node **stack_b, int size);
