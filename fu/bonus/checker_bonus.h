@@ -53,7 +53,7 @@ void	sa_or_sb(t_node **stack, char *oper);
 void	pb(t_node **stack_a, t_node **stack_b);
 void	free_stack(t_node **stack);
 void	free_split(char **to_free);
-int		check_syntax_duplication(char *buffer, size_t length, int i);
+int		check_syntax_duplication(t_node *stack_a);
 void	create_stack_a(t_node **stack_a, char **arg);
 void	retreive_node_index(t_node **stack_a, int *array, int len);
 void	sort_number_inarray(int **ar, int len);

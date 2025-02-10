@@ -64,7 +64,6 @@ int	main(int argc, char **argv)
 {
 	char	*buffer;
 	t_node	*stack_a;
-	size_t	length;
 	int		i;
 
 	stack_a = NULL;
@@ -72,10 +71,15 @@ int	main(int argc, char **argv)
 		return (0);
 	buffer = NULL;
 	buffer = put_or_split(argv, &buffer, 0);
-	length = 0;
-	if (!(check_syntax_duplication(buffer, length, 0) && valid(buffer)))
+	if (!valid(buffer))
 		error_exit();
 	create_stack_a(&stack_a, &buffer);
+	if (!check_syntax_duplication(stack_a))
+	{
+		free_stack(&stack_a);
+		free(buffer);
+		error_exit();
+	}
 	free(buffer);
 	retreive_indexes(&stack_a);
 	i = ft_lstsize(stack_a);
