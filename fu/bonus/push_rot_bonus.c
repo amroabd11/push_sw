@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:35:53 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/07 12:05:04 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:58:59 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push(t_node **stack_a, t_node **stack_b, char oper)
 	}
 	else if (oper == 'b')
 	{
-		if (!stack_b || !*stack_a || !(*stack_a)->next)
+		if (!stack_b || !*stack_a)
 			return ;
 		node_to_push = *stack_a;
 		*stack_a = (*stack_a)->next;

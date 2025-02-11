@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:29:47 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/09 22:02:56 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:02:54 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ int	sorted(t_node *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (1);
+}
+
+void	free_s_operations(t_oper **operations)
+{
+	t_oper	*temp;
+
+	while (*operations)
+	{
+		temp = (*operations)->next;
+		free(*operations);
+		*operations = temp;
+	}
+	operations = NULL;
 }
 
 void	free_stack(t_node **stack)

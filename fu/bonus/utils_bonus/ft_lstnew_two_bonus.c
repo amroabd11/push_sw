@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   syntax_duplication.c                               :+:      :+:    :+:   */
+/*   ft_lstnew_2_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 14:57:21 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/10 12:08:31 by aamraouy         ###   ########.fr       */
+/*   Created: 2025/02/11 11:22:53 by aamraouy          #+#    #+#             */
+/*   Updated: 2025/02/11 11:24:15 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
-int	check_syntax_duplication(t_node *stack_a)
+t_oper	*ft_lstnew_two(char *content)
 {
-	t_node *temp;
+	t_oper	*aloc;
 
-	t_node *current = stack_a;
-	while (current)
-	{
-		temp = current->next;
-		while (temp)
-		{
-			if (current->content == temp->content)
-				return (0);
-			temp = temp->next;
-		}
-		current = current->next;
-	}
-	return (1);
+	aloc = (t_oper *)malloc(sizeof(t_oper));
+	if (!aloc)
+		return (NULL);
+	aloc->content = content;
+	aloc->next = NULL;
+	return (aloc);
 }

@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:33:52 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/10 07:38:28 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:17:58 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	rrr(t_node **stack_a, t_node **stack_b, int cost_a, int cost_b);
 void	rr(t_node **stack_a, t_node **stack_b, int cost_a, int cost_b);
 void	create_stack_a(t_node **stack_a, char **arg);
 int		find_target(t_node *stack_b, t_node *stack_a);
-int		check_syntax_duplication(char *buffer, size_t length, int i);
+int		check_syntax_duplication(t_node *stack_a);
 void	sort_number_inarray(int **ar, int len);
 void	pb(t_node **stack_a, t_node **stack_b);
 void	sort_forbig(t_node **stack_a, t_node **stack_b, int size);

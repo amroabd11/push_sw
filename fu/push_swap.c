@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:32:54 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/10 07:44:17 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:07:00 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,21 @@ int	main(int argc, char **argv)
 {
 	char	*buffer;
 	t_node	*stack_a;
-	size_t	length;
 
 	stack_a = NULL;
 	if (argc < 2)
 		return (0);
 	buffer = NULL;
 	buffer = put_or_split(argv, &buffer, 0);
-	length = 0;
-	if (!(check_syntax_duplication(buffer, length, 0) && valid(buffer)))
+	if (!valid(buffer))
 		error_exit();
 	create_stack_a(&stack_a, &buffer);
+	if (!check_syntax_duplication(stack_a))
+	{
+		free_stack(&stack_a);
+		free(buffer);
+		error_exit();
+	}
 	free(buffer);
 	retreive_indexes(&stack_a);
 	sort_stack(&stack_a);

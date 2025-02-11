@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:08:34 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/09 20:15:13 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:13:25 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,62 @@ void	perform_operation(char *operator, t_node **stack_b, t_node **stack_a)
 		rr2(stack_a, stack_b, 0);
 	else if (ft_strncmp(operator, "rr\n", 3) == 0)
 		rr2(stack_a, stack_b, 1);
+	else if (ft_strncmp(operator, "ss\n", 3) == 0)
+		ss(stack_a, stack_b);
+	else if (ft_strncmp(operator, "sb\n", 3) == 0)
+		sa_or_sb(stack_b," ");
 	else
 		error_exit();
 }
 
+int	gnl(t_oper **operations)
+{
+	char	*oper;
+	t_oper	*temp;
+	t_oper	*new;
+	int		value;
+
+	while ((oper = get_next_line(0)) != NULL)
+	{
+		value = check_oper(oper);
+		if (!value)
+			return (0);
+		new = ft_lstnew_two(oper);
+		if (!new)
+			return (0);
+		if (*operations == NULL)
+			*operations = new;
+		else
+			temp->next = new;
+		temp = new;
+	}
+	return (1);
+}
+#include <stdio.h>
 void	sort_using_operations(t_node **stack_a)
 {
-	char	*operations;
+	t_oper	*operations;
 	t_node	*stack_b;
+	int		check_oper;
+	// t_oper	*first;
 
 	stack_b = NULL;
-	operations = get_next_line(0);
+	operations = NULL;
+	check_oper = gnl(&operations);
+	if (!check_oper)
+	{
+		free_s_operations(&operations);
+		free_stack(stack_a);
+		error_exit();
+	}
 	while (operations)
 	{
-		perform_operation(operations, &stack_b, stack_a);
-		free(operations);
-		operations = get_next_line(0);
+		perform_operation(operations->content, &stack_b, stack_a);
+		free(operations->content);
+		// operations = get_next_line(0);
+		operations = operations->next;
 	}
+	free(operations);
 	free_stack(&stack_b);
 }
 
@@ -64,7 +103,6 @@ int	main(int argc, char **argv)
 {
 	char	*buffer;
 	t_node	*stack_a;
-	size_t	length;
 	int		i;
 
 	stack_a = NULL;
@@ -72,10 +110,15 @@ int	main(int argc, char **argv)
 		return (0);
 	buffer = NULL;
 	buffer = put_or_split(argv, &buffer, 0);
-	length = 0;
-	if (!(check_syntax_duplication(buffer, length, 0) && valid(buffer)))
+	if (!valid(buffer))
 		error_exit();
 	create_stack_a(&stack_a, &buffer);
+	if (!check_syntax_duplication(stack_a))
+	{
+		free_stack(&stack_a);
+		free(buffer);
+		error_exit();
+	}
 	free(buffer);
 	retreive_indexes(&stack_a);
 	i = ft_lstsize(stack_a);

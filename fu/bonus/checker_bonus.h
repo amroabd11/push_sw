@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:56:30 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/10 07:40:34 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:12:20 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,18 @@ typedef struct s_node
 	int				position;
 }	t_node;
 
+typedef	struct s_operations
+{
+	char				*content;
+	struct s_operations	*next;
+} t_oper;
+
+void	ss(t_node **stack_a, t_node **stack_b);
+void	free_s_operations(t_oper **operations);
 long	ft_atoi(const char *str);
 void	ft_lstadd_back(t_node **lst, t_node *new);
+int		check_oper(char *operation);
+t_oper	*ft_lstnew_two(char *content);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(long content);
 int		ft_lstsize(t_node *lst);
@@ -53,7 +63,7 @@ void	sa_or_sb(t_node **stack, char *oper);
 void	pb(t_node **stack_a, t_node **stack_b);
 void	free_stack(t_node **stack);
 void	free_split(char **to_free);
-int		check_syntax_duplication(char *buffer, size_t length, int i);
+int		check_syntax_duplication(t_node *stack_a);
 void	create_stack_a(t_node **stack_a, char **arg);
 void	retreive_node_index(t_node **stack_a, int *array, int len);
 void	sort_number_inarray(int **ar, int len);

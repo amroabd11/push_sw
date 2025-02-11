@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 20:30:16 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/10 07:37:47 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:12:06 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	valid(char *arguments)
 	int	i;
 
 	i = 0;
+	if (!arguments)
+		return (0);
 	while (arguments[i])
 	{
 		if (ft_isdigit(arguments[i]) || arguments[i] == ' ')

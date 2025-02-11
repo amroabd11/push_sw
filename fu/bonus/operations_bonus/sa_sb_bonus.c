@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:00:24 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/09 22:05:49 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:14:28 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ void	sa_or_sb(t_node **stack, char *oper)
 	index = (*stack)->index;
 	(*stack)->index = (*stack)->next->index;
 	(*stack)->next->index = index;
-	if (ft_strncmp(oper, "sa", 2) == 0)
-		write(1, "sa\n", 3);
-	else if (ft_strncmp(oper, "sb", 2) == 0)
-		write(1, "sb\n", 3);
+	if (ft_strncmp(oper, " ", 1) == 0)
+		return ;
+}
+
+void	ss(t_node **stack_a, t_node **stack_b)
+{
+	sa_or_sb(stack_a, " ");
+	sa_or_sb(stack_b, " ");
 }

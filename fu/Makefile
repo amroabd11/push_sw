@@ -1,7 +1,7 @@
 NAME=push_swap
 BNAME=checker
 CC=cc
-CFLAGS=-Wextra -Wall -Werror -fsanitize=address
+CFLAGS=-Wextra -Wall -Werror 
 SRC=sorting/bubble_sort_five.c sorting/sort_array.c sorting/sort_bigger_stack.c sorting/sort_three.c sorting/sorted_checker.c\
 		operations/pb.c operations/reverse_rotation.c operations/rotate.c operations/rr.c operations/rrr.c operations/sa_sb.c\
 		merging_a_b/moves.c merging_a_b/position_init.c merging_a_b/pushto_a.c merging_a_b/split_join.c merging_a_b/target.c merging_a_b/added_function.c\
@@ -14,15 +14,15 @@ BON_SRC=bonus/checker_bonus.c bonus/get_next_line_bonus.c bonus/get_next_line_ut
 		bonus/utils_bonus/ft_atoi_bonus.c bonus/utils_bonus/ft_lstadd_back_bonus.c bonus/utils_bonus/ft_lstadd_front_bonus.c\
 		bonus/utils_bonus/ft_lstlast_bonus.c bonus/utils_bonus/ft_lstnew_bonus.c bonus/utils_bonus/ft_lstsize_bonus.c\
 		bonus/utils_bonus/ft_split_bonus.c bonus/utils_bonus/ft_strdup_bonus.c bonus/utils_bonus/ft_strjoin_bonus.c bonus/utils_bonus/ft_strlcat_bonus.c bonus/utils_bonus/ft_strlcpy_bonus.c\
-		bonus/utils_bonus/ft_strlen_bonus.c bonus/utils_bonus/ft_strncmp_bonus.c\
-		bonus/operations_bonus/pb_bonus.c bonus/operations_bonus/reverse_rotation_bonus.c bonus/operations_bonus/rotate_bonus.c bonus/operations_bonus/rr_bonus.c bonus/operations_bonus/rrr_bonus.c bonus/operations_bonus/sa_sb_bonus.c
+		bonus/utils_bonus/ft_strlen_bonus.c bonus/utils_bonus/ft_strncmp_bonus.c bonus/utils_bonus/ft_lstnew_two_bonus.c\
+		bonus/operations_bonus/pb_bonus.c bonus/operations_bonus/check_oper_bonus.c bonus/operations_bonus/reverse_rotation_bonus.c bonus/operations_bonus/rotate_bonus.c bonus/operations_bonus/rr_bonus.c bonus/operations_bonus/rrr_bonus.c bonus/operations_bonus/sa_sb_bonus.c
 		
 
 HEADERS = push_swap.h
 HEADERS_BONUS = bonus/checker_bonus.h
 
 OBJECT_FILES=$(SRC:.c=.o)
-OBJ_BONUS=$(BON_SRC:.c=.o)
+OBJ_BONUS=$(BON_SRC:_bonus.c=._bonus.o)
 
 all:$(NAME)
 
