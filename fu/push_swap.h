@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
+#include <stdio.h>
 # define TRUE 1
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5

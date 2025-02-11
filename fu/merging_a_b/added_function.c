@@ -56,6 +56,7 @@ void	create_stack_a(t_node **stack_a, char **arg)
 		{
 			free_split(splt);
 			free_stack(stack_a);
+			free(*arg);
 			error_exit();
 		}
 		node = ft_lstnew(number);

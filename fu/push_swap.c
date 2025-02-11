@@ -64,7 +64,11 @@ int	main(int argc, char **argv)
 		return (0);
 	buffer = NULL;
 	buffer = put_or_split(argv, &buffer, 0);
+<<<<<<< HEAD
 	if (!valid(buffer))
+=======
+	if (!valid(buffer))//the check must be after failing the stack a ;
+>>>>>>> 89b99f5692e6c5cb6801d2b130d0a34aec768582
 		error_exit();
 	create_stack_a(&stack_a, &buffer);
 	if (!check_syntax_duplication(stack_a))
